@@ -17,3 +17,27 @@ spec:
               containerPort: 80
       imagePullSecrets:
         - name: regcred
+
+kind: Service
+apiVersion: v1
+metadata:
+  creationTimestamp: null
+  labels:
+    app: php-deployment
+  name: php
+spec:
+  externalIPs:
+  - 40.85.77.179
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: port1
+    nodePort: 30000
+    port: 8000
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: php-deployment
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
