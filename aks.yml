@@ -18,6 +18,8 @@ spec:
       imagePullSecrets:
         - name: regcred
 
+---
+
 kind: Service
 apiVersion: v1
 metadata:
@@ -27,7 +29,7 @@ metadata:
   name: php
 spec:
   externalIPs:
-  - 40.85.77.179
+  - 40.112.79.246
   externalTrafficPolicy: Cluster
   ports:
   - name: port1
